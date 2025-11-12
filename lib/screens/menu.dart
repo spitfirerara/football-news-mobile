@@ -44,7 +44,7 @@ class MyHomePage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.indigo,
+                  color: Colors.blue,
                 ),
               ),
               const SizedBox(height: 20),

@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:football_news_mobile/screens/menu.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'screens/login.dart';
 
 void main() {
-  runApp(const FootballNewsApp());
+  runApp(const MyApp());
 }
 
-class FootballNewsApp extends StatelessWidget {
-  const FootballNewsApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Football News',
-      theme: ThemeData(
-        colorScheme: const ColorScheme.light(
-          primary: Colors.indigo,
-          ).copyWith(
-          secondary: Colors.indigo,
+    return Provider(
+      create: (_) => CookieRequest(),
+      child: MaterialApp(
+        title: 'Football News',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+              .copyWith(secondary: Colors.blueAccent[400]),
         ),
-        useMaterial3: false,
+        home: const LoginPage(),
       ),
-      home: const MyHomePage(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
